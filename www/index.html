@@ -33,9 +33,9 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello It's me</title>
+        <title>Today I Learned</title>
         <script type='text/template' id='allPosts'>
-          <h1 id='tHead'> Entries: </h1>
+          <h1 class='tHead'> Entries: </h1>
           <% for(var i=0; i<posts.length; i++){ %>
             <div class ="post">
               <button data-id="<%=i%>" class ="delete one" type="button">		<div class='insider'></div>Delete</button>
@@ -46,6 +46,7 @@
           <% } %>
         </script>
         <script type='text/template' id='addEntryForm'>
+          <h1 class='tHead'> New Entry: </h1>
           <div class="postForm">
           <form id ='entryForm'>
             <br/>
@@ -58,18 +59,30 @@
           </div>
         </script>
         <script type ='text/template' id='singlePost'>
+          <h1 class='tHead'> <%= post.slug %> </h1>
           <div class="post">
-            <h2> <%= post.slug %> </h1>
-            <p> <%=post.body %></p>
+            <p id='ipost'> <%=post.body %></p>
           </div>
         </script>
     </head>
     <body>
       <nav>
-<ul>
-  <li><a href='/add'>Add entry</a></li>
-  <li><a href='/entries'>Entries</a></li>
-</ul>
+        <div class="svg-wrapper">
+          <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+            <rect id="shape" height="40" width="150" />
+            <div id="text">
+            <a href='/add'><span class="spot"></span>Add Post</a>
+            </div>
+          </svg>
+      </div>
+      <div class="svg-wrapper">
+        <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+          <rect id="shape" height="40" width="150" />
+          <div id="text">
+          <a href='/entries'><span class="spot"></span>All Posts</a>
+          </div>
+        </svg>
+      </div>
       </nav>
       <div id="container">
       </div>
